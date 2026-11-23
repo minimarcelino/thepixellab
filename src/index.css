@@ -76,20 +76,6 @@
   }
 }
 
-/* Pixel grid decorativo */
-.pixel-grid {
-  background-image:
-    linear-gradient(to right, rgb(245 243 239 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(245 243 239 / 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-.pixel-grid-light {
-  background-image:
-    linear-gradient(to right, rgb(16 16 16 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(16 16 16 / 0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
 /* Revelação ao rolar (ativada por JS; sem JS o conteúdo fica visível) */
 .js .reveal {
   opacity: 0;

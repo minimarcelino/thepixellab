@@ -101,7 +101,7 @@ export function ProjectModal({ project, onClose }: Props) {
                 )}
               </>
             ) : (
-              <div className="pixel-grid flex h-full w-full flex-col items-center justify-center gap-3 p-10 text-center text-paper/60">
+              <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-10 text-center text-paper/60">
                 <ImageOff className="h-8 w-8" strokeWidth={1.5} aria-hidden="true" />
                 <p className="text-sm">As imagens deste projeto serão publicadas em breve.</p>
               </div>

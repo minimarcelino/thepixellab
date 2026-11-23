@@ -12,10 +12,6 @@ export function DesignBoard({ className = '' }: Props) {
   return (
     <svg viewBox="0 0 400 300" className={className} preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de um quadro de identidade visual com logotipo, paleta de cores e tipografia">
       <rect width="400" height="300" fill="#E9E6DF" />
-      <g stroke="#101010" strokeOpacity=".06">
-        {Array.from({ length: 14 }).map((_, i) => <line key={`v${i}`} x1={i * 32} y1="0" x2={i * 32} y2="300" />)}
-        {Array.from({ length: 10 }).map((_, i) => <line key={`h${i}`} x1="0" y1={i * 32} x2="400" y2={i * 32} />)}
-      </g>
       {/* cartão do logo */}
       <rect x="40" y="44" width="150" height="150" rx="14" fill="#101010" />
       {[0, 1, 3, 4, 5, 7].map((i) => (
@@ -52,10 +48,6 @@ export function SystemsWindow({ className = '' }: Props) {
   return (
     <svg viewBox="0 0 400 300" className={className} preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de uma página web em construção, com o código ao lado">
       <rect width="400" height="300" fill="#B7FF45" />
-      <g stroke="#101010" strokeOpacity=".08">
-        {Array.from({ length: 14 }).map((_, i) => <line key={`v${i}`} x1={i * 32} y1="0" x2={i * 32} y2="300" />)}
-        {Array.from({ length: 10 }).map((_, i) => <line key={`h${i}`} x1="0" y1={i * 32} x2="400" y2={i * 32} />)}
-      </g>
       {/* navegador */}
       <rect x="36" y="40" width="250" height="196" rx="12" fill="#101010" />
       <circle cx="54" cy="56" r="4" fill="#F5F3EF" opacity=".35" />

@@ -25,7 +25,6 @@ export function Placeholder({ label, icon: Icon, tone = 'dark', className = '', 
 
   return (
     <div className={`relative isolate overflow-hidden ${tones[tone]} ${className}`} role="img" aria-label={`Espaço reservado${label ? `: ${label}` : ''}`}>
-      <div className={`absolute inset-0 ${tone === 'light' || tone === 'lime' ? 'pixel-grid-light' : 'pixel-grid'}`} aria-hidden="true" />
       <div className="absolute right-4 top-4 grid grid-cols-6 gap-1 opacity-60" aria-hidden="true">
         {cells.map((on, i) => (
           <span key={i} className={`h-2 w-2 ${on ? (tone === 'lime' ? 'bg-ink' : 'bg-lime') : 'bg-current opacity-10'}`} />

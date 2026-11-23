@@ -105,7 +105,7 @@ export function Contact({ onOpenPrivacy }: { onOpenPrivacy: () => void }) {
 
   return (
     <section id="contato" aria-labelledby="contato-title" className="relative overflow-hidden border-t border-paper/10 py-24 md:py-32">
-      <div className="pixel-grid absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_bottom_left,black_20%,transparent_70%)]" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_60%_at_0%_100%,rgb(183_255_69/0.06),transparent_70%)]" aria-hidden="true" />
       <div className="container-x grid gap-14 lg:grid-cols-12">
         <div className="reveal lg:col-span-5">
           <p className="eyebrow mb-4 flex items-center gap-2 text-muted">

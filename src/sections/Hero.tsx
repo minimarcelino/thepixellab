@@ -15,7 +15,7 @@ export function Hero() {
 
   return (
     <section id="inicio" aria-labelledby="hero-title" className="relative isolate overflow-hidden pt-28 md:pt-36">
-      <div className="pixel-grid absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" aria-hidden="true" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_70%_55%_at_85%_0%,rgb(183_255_69/0.07),transparent_70%),radial-gradient(ellipse_60%_50%_at_0%_100%,rgb(245_243_239/0.04),transparent_70%)]" aria-hidden="true" />
 
       <div className="container-x grid items-end gap-12 pb-16 md:pb-24 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-7">
