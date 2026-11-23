@@ -51,12 +51,16 @@ export const site = {
     portrait: asset('/images/about/portrait-800.webp'),
     /** Imagens das áreas (cards MV.Pixels e The Pixel Lab). Vazio = ilustração. */
     areaPixels: asset('/images/portfolio/retrato-rede-1600.webp'),
-    areaLab: '',
+    areaLab: asset('/images/portfolio/landing-giovana-1600.webp'),
     /**
      * Imagens do hero, na ordem: Photography, Design, Systems.
      * Vazio ('') = ilustração própria do serviço.
      */
-    hero: [asset('/images/portfolio/bt-saque-900.webp'), '', ''] as string[],
+    hero: [
+      asset('/images/portfolio/bt-saque-900.webp'),
+      asset('/images/hero/design-logo-mr-900.webp'),
+      asset('/images/hero/systems-financia-900.webp'),
+    ] as string[],
   },
 } as const;
 

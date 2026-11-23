@@ -5,9 +5,9 @@ import { DesignBoard, SystemsWindow } from '../components/Illustrations';
 const delay = (ms: number) => ({ '--delay': `${ms}ms` }) as React.CSSProperties;
 
 const tiles = [
-  { label: 'Photography', sub: 'MV.Pixels', tone: 'dark' as const, Art: null },
-  { label: 'Design', sub: 'The Pixel Lab', tone: 'light' as const, Art: DesignBoard },
-  { label: 'Systems', sub: 'The Pixel Lab', tone: 'lime' as const, Art: SystemsWindow },
+  { label: 'Photography', sub: 'MV.Pixels', tone: 'dark' as const, Art: null, alt: 'Atleta de beach tennis no saque, fotografado ao pôr do sol', pos: '50% 25%' },
+  { label: 'Design', sub: 'The Pixel Lab', tone: 'light' as const, Art: DesignBoard, alt: 'Logotipo Manoel Ribeiro Advogado criado pela The Pixel Lab', pos: '50% 40%' },
+  { label: 'Systems', sub: 'The Pixel Lab', tone: 'lime' as const, Art: SystemsWindow, alt: 'Aplicativo de finanças FinançaIA aberto em um celular', pos: '50% 20%' },
 ];
 
 export function Hero() {
@@ -52,13 +52,21 @@ export function Hero() {
               const img = heroImages[i];
               const span = i === 0 ? 'row-span-2' : '';
               return (
-                <figure key={t.label} className={`group relative overflow-hidden rounded-2xl ${span}`}>
+                <figure key={t.label} className={`group relative overflow-hidden rounded-2xl ring-1 ring-paper/10 ${span}`}>
                   {img ? (
-                    <img src={img} alt={i === 0 ? 'Atleta de beach tennis no saque, fotografado ao pôr do sol' : ''} width={600} height={900} className="h-full w-full object-cover object-[50%_25%] transition-transform duration-700 ease-out-soft group-hover:scale-105" fetchPriority={i === 0 ? 'high' : 'auto'} />
+                    <img src={img} alt={t.alt} style={{ objectPosition: t.pos }} className="h-full w-full object-cover transition-transform duration-700 ease-out-soft group-hover:scale-105" fetchPriority={i === 0 ? 'high' : 'auto'} />
                   ) : t.Art ? (
                     <t.Art className="h-full w-full transition-transform duration-700 ease-out-soft group-hover:scale-105" />
                   ) : null}
-                  <figcaption className={`absolute bottom-0 left-0 right-0 flex flex-col-reverse items-start gap-1 p-4 ${t.tone === 'dark' || img ? 'text-paper' : 'text-ink'} ${img ? 'bg-gradient-to-t from-ink/85 via-ink/30 to-transparent pt-12' : t.tone === 'lime' ? 'bg-gradient-to-t from-lime via-lime/90 to-transparent pt-8' : 'bg-gradient-to-t from-paper-2 via-paper-2/90 to-transparent pt-8'}`}>
+                  <figcaption className={`absolute bottom-0 left-0 right-0 flex flex-col-reverse items-start gap-1 p-4 pt-10 ${
+                    t.tone === 'lime'
+                      ? 'bg-gradient-to-t from-lime via-lime/85 to-transparent text-ink'
+                      : img
+                        ? 'bg-gradient-to-t from-ink/90 via-ink/40 to-transparent text-paper'
+                        : t.tone === 'dark'
+                          ? 'text-paper'
+                          : 'bg-gradient-to-t from-paper-2 via-paper-2/90 to-transparent text-ink'
+                  }`}>
                     <span className="text-lg font-bold leading-none">{t.label}</span>
                     <span className="eyebrow text-[0.62rem] opacity-70">{t.sub}</span>
                   </figcaption>

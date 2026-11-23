@@ -113,6 +113,7 @@ function ProjectCard({ project: p, index, onOpen }: { project: Project; index: n
             alt={p.cover.alt}
             width={p.cover.width}
             height={p.cover.height}
+            style={p.cover.position ? { objectPosition: p.cover.position } : undefined}
             loading="lazy"
             decoding="async"
             className="h-full w-full object-cover object-[50%_30%] transition-transform duration-700 ease-out-soft group-hover:scale-105"

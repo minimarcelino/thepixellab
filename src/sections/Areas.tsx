@@ -62,7 +62,7 @@ export function Areas({ onShowProjects }: Props) {
           <article className="reveal group flex flex-col overflow-hidden rounded-3xl border border-paper/10 bg-graphite/50" aria-labelledby="area-lab" style={{ '--delay': '120ms' } as React.CSSProperties}>
             <div className="relative aspect-[16/10] overflow-hidden">
               {site.images.areaLab ? (
-                <img src={site.images.areaLab} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 ease-out-soft group-hover:scale-105" />
+                <img src={site.images.areaLab} alt="Landing page desenvolvida pela The Pixel Lab, exibida em computador e celular" width={1600} height={1000} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 ease-out-soft group-hover:scale-105" />
               ) : (
                 <div className="grid h-full w-full grid-cols-2 transition-transform duration-700 ease-out-soft group-hover:scale-105">
                   <DesignBoard className="h-full w-full" />
