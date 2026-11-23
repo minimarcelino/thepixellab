@@ -1,0 +1,137 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Manrope Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'JetBrains Mono', Menlo, monospace;
+
+  --color-ink: #101010;
+  --color-graphite: #292929;
+  --color-smoke: #3a3a3a;
+  --color-paper: #f5f3ef;
+  --color-paper-2: #e9e6df;
+  --color-lime: #b7ff45;
+  --color-lime-deep: #3f6b00;
+  --color-muted: #a3a09a;
+  --color-muted-dark: #5d5a55;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ink text-paper font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    @apply bg-lime text-ink;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-lime);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .on-light :focus-visible {
+    outline-color: var(--color-ink);
+  }
+  dialog::backdrop {
+    background: rgb(10 10 10 / 0.85);
+    backdrop-filter: blur(6px);
+  }
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+}
+@utility eyebrow {
+  @apply font-mono text-[0.72rem] uppercase tracking-[0.2em];
+}
+@utility btn {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold
+    transition-[background-color,color,transform,box-shadow,border-color] duration-300 ease-out-soft
+    active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60;
+}
+@utility btn-primary {
+  @apply btn bg-lime text-ink hover:bg-paper;
+}
+@utility btn-ghost {
+  @apply btn border border-paper/25 text-paper hover:border-paper hover:bg-paper hover:text-ink;
+}
+@utility btn-dark {
+  @apply btn bg-ink text-paper hover:bg-graphite;
+}
+@utility card-dark {
+  @apply rounded-2xl border border-paper/10 bg-graphite/40;
+}
+@utility field {
+  @apply w-full rounded-xl border border-paper/15 bg-ink/60 px-4 py-3 text-base text-paper
+    placeholder:text-muted/60 transition-colors duration-200
+    hover:border-paper/30 focus:border-lime focus:outline-none;
+  &[aria-invalid='true'] {
+    @apply border-red-400;
+  }
+}
+
+/* Pixel grid decorativo */
+.pixel-grid {
+  background-image:
+    linear-gradient(to right, rgb(245 243 239 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(245 243 239 / 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.pixel-grid-light {
+  background-image:
+    linear-gradient(to right, rgb(16 16 16 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(16 16 16 / 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Revelação ao rolar (ativada por JS; sem JS o conteúdo fica visível) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s var(--ease-out-soft),
+    transform 0.8s var(--ease-out-soft);
+  transition-delay: var(--delay, 0ms);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes blink {
+  50% { opacity: 0.25; }
+}
+@keyframes float-pixel {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-rise {
+  animation: rise 0.9s var(--ease-out-soft) both;
+  animation-delay: var(--delay, 0ms);
+}
+.animate-blink {
+  animation: blink 1.4s steps(2, start) infinite;
+}
+.animate-float {
+  animation: float-pixel 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .js .reveal { opacity: 1; transform: none; }
+}
